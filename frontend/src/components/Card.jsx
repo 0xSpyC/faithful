@@ -64,6 +64,13 @@ const useStyles = createUseStyles({
         display: 'flex',
         justifyContent: 'space-between'
       },
+      dialog: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        color: '#ffffff',
+        fontFamily: 'Quicksand',
+        fontSize: '26px'
+      }
   })
 
   const Transition = React.forwardRef(function Transition(props, ref) {
@@ -118,8 +125,17 @@ const Card = ({id, name, details, imageCID, reviewsCID, hashCID, tokenPool }) =>
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        PaperProps={{
+          style: {
+            backgroundColor: 'rgb(104, 33, 125)',
+            borderRadius: '20px',
+            height: '800px',
+            width: '1400px',
+            maxWidth: '1400px'
+          }
+        }}
       >
-        <DialogTitle>{"User Reviews About The Product"}
+        <DialogTitle className={classes.dialog}>{"User Reviews About The Product"}
           <Button >WRITE A REVIEW</Button>
         </DialogTitle>
         <DialogContent>

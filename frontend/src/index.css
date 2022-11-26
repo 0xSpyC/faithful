@@ -1,12 +1,7 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Varela+Round&display=swap');
 
 
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 * {
   margin: 0;
@@ -28,7 +23,7 @@ body {
   overscroll-behavior: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  font-family: 'Poppins', sans-serif; 
+  font-family: 'Varela Round', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -112,6 +107,9 @@ html {
   --dark: #222222;
   --green: #A5FFD6;
   --red-shade: #6b060421;
-  --light: #7F5A83;
+  --light: #183059;
+  /* --light: #858AE3;
+  --light: #4E148C; */
+  --light: rgb(238, 238, 255);
   --grey: #787878;
 }

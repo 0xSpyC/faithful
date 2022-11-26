@@ -5,8 +5,8 @@ import configureStore from './redux/store/configureStore';
 import UsersPage from './pages/UsersPage';
 import ProductsPage from './pages/ProductsPage';
 import './index.css'
-
 import Header from './components/Header';
+import ProductsContainer from './containers/ProductsContainer';
 
 const store = configureStore();
 
@@ -15,8 +15,8 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Header />
+      <ProductsContainer />
       <UsersPage />
-      <ProductsPage />
     </Provider>
   </React.StrictMode>
 );

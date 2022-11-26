@@ -9,9 +9,25 @@ import { ClassNames } from '@emotion/react';
 
 const useStyles = createUseStyles({
     header: {
-      "background-color": 'green',
       margin: '20px',
-      }
+      },
+    bar: {
+        'background-color': 'rgb(104, 33, 125)',
+        // 'background-color': '#4E148C',
+        // 'background-color': '#858AE3',
+        // 'background-color': '#613DC1',
+        'border-radius': '10px',
+        'height': '100px',
+        justifyContent: 'center',
+    },
+    fonth4: {
+      'font-family': 'Quicksand',
+      'font-size': '35px'
+    },
+    fonth6: {
+      'font-family': 'Quicksand',
+      'font-size': '24px'
+    }
   })
 
 const Header = () => {
@@ -19,12 +35,12 @@ const Header = () => {
   return (
     <div className={classes.header}>
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
+          <AppBar position="static" className={classes.bar}>
             <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Faithful
+              <Typography className={classes.fonth4} component="div" sx={{ flexGrow: 1 }}>
+                FAITHFUL
               </Typography>
-              <Button color="inherit">Connect Wallet</Button>
+              <Button color="inherit" className={classes.fonth6}>Connect Wallet</Button>
             </Toolbar>
           </AppBar>
         </Box>

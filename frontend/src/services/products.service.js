@@ -1,7 +1,7 @@
 import apiClient from "../helper/apiClient";
 
 class ProductsService {
-    getWalletsList = () => apiClient().get('smart-contract');
+    getWalletsList = () => apiClient().get('allProducts');
 }
 
 export default new ProductsService();

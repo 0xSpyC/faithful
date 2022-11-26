@@ -13,6 +13,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+import TextField from '@mui/material/TextField';
 
 const useStyles = createUseStyles({
     card: {
@@ -26,7 +27,7 @@ const useStyles = createUseStyles({
         display: 'flex',
         flexDirection : 'column',
         textAlign: 'center',
-        "-webkit-justify-content": 'flex-start',
+        "-webkit-justify-content": 'space-between',
         height: '500px'
     },
     cardMedia: {
@@ -44,7 +45,10 @@ const useStyles = createUseStyles({
         fontFamily: 'Quicksand',
         color: '#ffffffba',
         fontSize: '14px',
-        padding : '20px'
+        padding : '20px',
+        height: '100px',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
       },
       cardReward:{
         fontFamily: 'Quicksand',
@@ -66,7 +70,7 @@ const useStyles = createUseStyles({
     return <Slide direction="up" ref={ref} {...props} />;
   });
 
-const Card = () => {
+const Card = ({id, name, details, imageCID, reviewsCID, hashCID, tokenPool }) => {
     const classes = useStyles()
 
     const [open, setOpen] = React.useState(false);
@@ -91,14 +95,10 @@ const Card = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" className={classes.cardText}>
-            Iphone 14
+            {name}
           </Typography>
           <Typography variant="body2" color="text.secondary" className={classes.cardDescription}>
-           IPhone 14 Pro. Avec Dynamic Island. Détection des accidents. Un appareil photo 48 Mpx pour une résolution jusqu'à 4x supérieure.
-           IPhone 14 Pro. Avec Dynamic Island. Détection des accidents. Un appareil photo 48 Mpx pour une résolution jusqu'à 4x supérieure.
-           IPhone 14 Pro. Avec Dynamic Island. Détection des accidents. Un appareil photo 48 Mpx pour une résolution jusqu'à 4x supérieure.
-           IPhone 14 Pro. Avec Dynamic Island. Détection des accidents. Un appareil photo 48 Mpx pour une résolution jusqu'à 4x supérieure.
-           IPhone 14 Pro. Avec Dynamic Island. Détection des accidents. Un appareil photo 48 Mpx pour une résolution jusqu'à 4x supérieure.
+            {details}
           </Typography>
           <Rating name="read-only" value={4} readOnly />
           <div className={classes.displayReward}>
@@ -119,13 +119,12 @@ const Card = () => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Reviews Reviews Reviews Reviews Reviews Reviews Reviews Reviews"}</DialogTitle>
-        <DialogActions>
-          <Button onClick={handleClose}>SUBMIT MY REVIEW</Button>
-        </DialogActions>
+        <DialogTitle>{"User Reviews About The Product"}
+          <Button >WRITE A REVIEW</Button>
+        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review Met Les Review 
+            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
           </DialogContentText>
         </DialogContent>
       </Dialog>

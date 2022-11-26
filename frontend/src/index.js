@@ -15,8 +15,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Header />
-      <ProductsContainer />
-      <UsersPage />
+      <ProductsPage />
     </Provider>
   </React.StrictMode>
 );

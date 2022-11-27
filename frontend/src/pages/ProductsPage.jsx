@@ -6,6 +6,8 @@ import Container from '@mui/material/Container'
 import {createUseStyles} from 'react-jss'
 import { sizing } from '@mui/system';
 //import AddProductCard from '../components/AddProductCard'
+import {ABI} from '../helper/abi'
+import {ethers} from 'ethers'
 
 const useStyles = createUseStyles({
   hero: {
@@ -34,6 +36,16 @@ const useStyles = createUseStyles({
 }
 })
 
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+function get(){
+let faithfulContract = new ethers.Contract("0x5F9A9EeBa8914e95E02C1c69792e2b1C14440bCE", ABI, signer);
+    console.log(faithfulContract)
+    //console.log(ethers.encodeFunctionResult("balanceOf", ["0xFaC8613f930515C8E4a2B6E70B5B61918354b348"]))
+    // let ffulbalance
+    // console.log(Addr)
+	faithfulContract.owner().then((response) => console.log(response));
+}
 
 const ProductsPage = () => {
     const dispatch = useDispatch();
@@ -47,7 +59,7 @@ const ProductsPage = () => {
     <Container maxWidth="sm" className={classes.containerUp}>
         {isLoading && <h3>Loading...</h3>}
         {errorMessage && <h3>{errorMessage}</h3>}
-        
+        {get()}
         {products && Object.entries(products).map((key) =>
         <Card 
         key={key[1][0]}

@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react'
 import {createUseStyles} from 'react-jss'
 import { useDispatch, useSelector } from 'react-redux';
-import { loadWalletAsync } from '../redux/reducers/wallet/wallet';
+import { loadAssetsAsync, loadWalletAsync } from '../redux/reducers/wallet/wallet';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { ClassNames } from '@emotion/react';
-
+import { SCgetBalance, SCgetFFULBalance } from '../services/wallet.service';
+import {ABI} from "../helper/abi.js";
+import {ethers} from 'ethers';
 const useStyles = createUseStyles({
     header: {
       margin: '20px',
@@ -36,6 +37,12 @@ const useStyles = createUseStyles({
 const Header = () => {
     const classes = useStyles()
     const dispatch = useDispatch();
+    // let assets = [0,0];
+    // function getAssets(assets)
+    // {
+    //   SCgetBalance().then((response) => assets[0]=response)
+    //   SCgetFFULBalance().then((response) => assets[1]=response)
+    // }
     const { isLoading, wallet, errorMessage } = useSelector(state => state.wallet);
   return (
     <div className={classes.header}>
@@ -45,7 +52,10 @@ const Header = () => {
               <Typography className={classes.fonth4} component="div" sx={{ flexGrow: 1 }}>
                 FAITHFUL
               </Typography>
-              <Button color="inherit" className={classes.fonth6} onClick={() => dispatch(loadWalletAsync())}>Connect Wallet</Button>
+              {wallet ?
+              <React.Fragment>
+                <p>{wallet.FFUL} FFUL {wallet.BNB} BNB wallet : {wallet.addr}</p> 
+              </React.Fragment>: <Button color="inherit" className={classes.fonth6} onClick={() => dispatch(loadWalletAsync())}>Connect Wallet</Button>}
             </Toolbar>
           </AppBar>
         </Box>

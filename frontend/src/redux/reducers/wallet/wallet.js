@@ -1,5 +1,4 @@
-import {setupMetamask} from '../../../services/wallet.service'
-
+import {setupMetamask, SCgetBalance, SCgetFFULBalance} from '../../../services/wallet.service'
 let initialStates = {
     isLoading: false,
     wallet: null,
@@ -33,7 +32,6 @@ export const walletReducer = (state = initialStates, { type, payload }) => {
             return {
                 ...state,
                 isLoading: true,
-                wallet: null,
                 errorMessage: null,
             };
 
@@ -60,8 +58,8 @@ export const loadWalletAsync = () => (dispatch) => {
     dispatch(walletLoadStart());
 
     setupMetamask()
-        .then((response) => dispatch(walletLoadSuccess(response.data)))
-        .catch((error) => dispatch(walletLoadError(error.meesage)));
+        .then((response) => dispatch(walletLoadSuccess(response)))
+        .catch((error) => dispatch(walletLoadError(error.message)));
 }
 
 export default {

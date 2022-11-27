@@ -7,6 +7,7 @@ import ProductsPage from './pages/ProductsPage';
 import './index.css'
 import Header from './components/Header';
 import ProductsContainer from './containers/ProductsContainer';
+import SectionSeparator from './components/SectionSeparator';
 
 const store = configureStore();
 
@@ -15,6 +16,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Header />
+      <SectionSeparator name="PRODUCTS"/>
       <ProductsPage />
     </Provider>
   </React.StrictMode>

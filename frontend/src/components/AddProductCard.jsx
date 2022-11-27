@@ -14,6 +14,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
+import AddIcon from '@mui/icons-material/Add';
 
 import Reviews from './Reviews';
 
@@ -119,7 +120,7 @@ const Card = ({id, name, details, imageCID, reviewsCID, hashCID, tokenPool }) =>
       <CardActionArea className={classes.cardArea} onClick={handleClickOpen}>
         <CardMedia
           component="img"
-          image={require('../assets/iphone.png')}
+          image={<AddIcon />}
           alt="iphone"
           className={classes.cardMedia}
         />
@@ -164,18 +165,7 @@ const Card = ({id, name, details, imageCID, reviewsCID, hashCID, tokenPool }) =>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
             {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
-          <Reviews />
+         
           </DialogContentText>
         </DialogContent>
       </Dialog>

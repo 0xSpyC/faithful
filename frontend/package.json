@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.0",
     "craco": "^0.0.3",
+    "ethers": "^5.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-jss": "^10.9.2",
@@ -22,7 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-	"run": "live-server",
+    "run": "live-server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

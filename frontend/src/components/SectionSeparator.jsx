@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {createUseStyles} from 'react-jss'
-import { useDispatch, useSelector } from 'react-redux';
-import { loadWalletAsync } from '../redux/reducers/wallet/wallet';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,20 +9,21 @@ import { ClassNames } from '@emotion/react';
 
 const useStyles = createUseStyles({
     header: {
-      margin: '20px',
+      margin: '20px 20px',
       },
     bar: {
-        'background-color': 'rgb(104, 33, 125)',
+        'background-color': 'rgb(55, 67, 102)',
         // 'background-color': '#4E148C',
         // 'background-color': '#858AE3',
         // 'background-color': '#613DC1',
         'border-radius': '10px',
-        'height': '100px',
+        'height': '50px',
         justifyContent: 'center',
+        alignItems: 'center'
     },
     fonth4: {
       'font-family': 'Quicksand',
-      'font-size': '35px'
+      'font-size': '30px'
     },
     fonth6: {
       'font-family': 'Quicksand',
@@ -32,20 +31,16 @@ const useStyles = createUseStyles({
     }
   })
 
-
-const Header = () => {
+const SectionSeparator = ({name}) => {
     const classes = useStyles()
-    const dispatch = useDispatch();
-    const { isLoading, wallet, errorMessage } = useSelector(state => state.wallet);
   return (
     <div className={classes.header}>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static" className={classes.bar}>
             <Toolbar>
               <Typography className={classes.fonth4} component="div" sx={{ flexGrow: 1 }}>
-                FAITHFUL
+                {name}
               </Typography>
-              <Button color="inherit" className={classes.fonth6} onClick={() => dispatch(loadWalletAsync())}>Connect Wallet</Button>
             </Toolbar>
           </AppBar>
         </Box>
@@ -53,4 +48,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default SectionSeparator
